@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Codebook</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Codebook</h1>
+
+<h3>Initial Data</h3>
+
+<p>The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: </p>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> </p>
+
+<p>Here are the data for the project: </p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a> </p>
+
+<h3>The differences from the original data set:</h3>
+
+<ol>
+<li>Training and test sets are merged together.</li>
+<li>All variables are merged together.</li>
+<li>The resulting data frame is labelled.</li>
+<li>The activity field uses the activity names instead of numeric indicators.</li>
+<li>Only the variables listing means and SDs are included.</li>
+<li>The second data set groups all data by subject and activity, averaging over all observations.</li>
+</ol>
+
+<h3>tidyDatasetAverage.txt</h3>
+
+<p>For tidyDatasetAverage the variables were renamed according to following rules:</p>
+
+<ol>
+<li>Replace <code>-mean</code> with <code>Mean</code></li>
+<li>Replace <code>-std</code> with <code>Std</code></li>
+<li>Remove characters <code>-()</code></li>
+<li>Replace <code>BodyBody</code> with <code>Body</code></li>
+</ol>
+
+<h3>Variables in tidyDatasetAverage.txt</h3>
+
+<table><thead>
+<tr>
+<th>Tidy data set</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>subject.id : The subject ID, an integer in the range 1:30</code></td>
+</tr>
+<tr>
+<td><code>activity : The activity performed by the subject</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccMeanX</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccMeanY</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccMeanZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccStdX</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccStdY</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccStdZ</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccMeanX</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccMeanY</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccMeanZ</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccStdX</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccStdY</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccStdZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkMeanX</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkMeanY</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkMeanZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkStdX</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkStdY</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkStdZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroMeanX</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroMeanY</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroMeanZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroStdX</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroStdY</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroStdZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkMeanX</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkMeanY</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkMeanZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkStdX</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkStdY</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkStdZ</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccMagMean</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccMagStd</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccMagMean</code></td>
+</tr>
+<tr>
+<td><code>tGravityAccMagStd</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkMagMean</code></td>
+</tr>
+<tr>
+<td><code>tBodyAccJerkMagStd</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroMagMean</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroMagStd</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkMagMean</code></td>
+</tr>
+<tr>
+<td><code>tBodyGyroJerkMagStd</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccStdX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccStdY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccStdZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanFreqX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanFreqY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMeanFreqZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkStdX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkStdY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkStdZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanFreqX</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanFreqY</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMeanFreqZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanX</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanY</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroStdX</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroStdY</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroStdZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanFreqX</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanFreqY</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMeanFreqZ</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMagMean</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMagStd</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccMagMeanFreq</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMagMean</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMagStd</code></td>
+</tr>
+<tr>
+<td><code>fBodyAccJerkMagMeanFreq</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMagMean</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMagStd</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroMagMeanFreq</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroJerkMagMean</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroJerkMagStd</code></td>
+</tr>
+<tr>
+<td><code>fBodyGyroJerkMagMeanFreq</code></td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>
+
